@@ -17,6 +17,8 @@ SOURCES += \
     plotter.cpp \
     sdata.cpp \
     svm.cpp \
+    vll.cpp \
+    vph.cpp \
     wcursorinfo.cpp \
     wplot.cpp
 
@@ -28,6 +30,8 @@ HEADERS += \
     plotter.h \
     sdata.h \
     svm.h \
+    vll.h \
+    vph.h \
     wcursorinfo.h \
     wplot.h
 

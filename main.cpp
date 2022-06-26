@@ -2,6 +2,8 @@
 #include "mwplot.h"
 #include "svm.h"
 #include "alphabeta.h"
+#include "vll.h"
+#include "vph.h"
 #include <math.h>
 
 #include <QApplication>
@@ -13,9 +15,11 @@ int main(int argc, char *argv[])
     //w.show();
 
 
-    MWPlot* mwplot = new MWPlot("Test");
+    MWPlot* dutyPlot = new MWPlot("Duty");
+    MWPlot* vllPlot = new MWPlot("Vll");
+    MWPlot* vphPlot = new MWPlot("Vph");
 
-    float m = 0.5f;
+    float m = 1.0f;
     int nSect = 6;
     int angleEnd = 60 * nSect;
     AlphaBeta v;
@@ -24,14 +28,28 @@ int main(int argc, char *argv[])
         v.alpha = m * cos(th);
         v.beta = m * sin(th);
         Duty d = SVM::calculate(v);
-        //qDebug() << i << d.a << d.b << d.c;
-        mwplot->addPoint(i,SData(d.a, d.b, d.c));
+
+        dutyPlot->addPoint(i,SData(d.a, d.b, d.c));
+
+        float vdc = 100;
+        Vll vll(vdc, d);
+        vllPlot->addPoint(i, SData(vll.vab, vll.vbc, vll.vca));
+
+        Vph vph(vll);
+        vphPlot->addPoint(i, SData(vph.va, vph.vb, vph.vc));
     }
 
-    mwplot->show();
-    mwplot->updatePlot();
+    dutyPlot->show();
+    dutyPlot->updatePlot();
+    dutyPlot->exportData("duty.txt");
 
-    mwplot->exportData("svm.txt");
+    vllPlot->show();
+    vllPlot->updatePlot();
+    vllPlot->exportData("vll.txt");
+
+    vphPlot->show();
+    vphPlot->updatePlot();
+    vphPlot->exportData("vph.txt");
 
     return a.exec();
 }
