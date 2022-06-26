@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MWPlot</class>
+ <widget class="QMainWindow" name="MWPlot">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="WPlot" name="wplot"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>640</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_data_file"/>
+    <addaction name="actionExport_data_file"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionZoom_Undo"/>
+    <addaction name="actionZoom_Redo"/>
+    <addaction name="actionZoom_In"/>
+    <addaction name="actionZoom_Out"/>
+   </widget>
+   <widget class="QMenu" name="menuTest">
+    <property name="title">
+     <string>Test</string>
+    </property>
+    <addaction name="actionTest"/>
+   </widget>
+   <widget class="QMenu" name="menuCursors">
+    <property name="title">
+     <string>Cursors</string>
+    </property>
+    <addaction name="actionAdd"/>
+    <addaction name="actionInfo_data"/>
+   </widget>
+   <widget class="QMenu" name="menuAxis">
+    <property name="title">
+     <string>Axis</string>
+    </property>
+    <addaction name="actionBottom_Left"/>
+    <addaction name="actionTop_Right"/>
+    <addaction name="separator"/>
+    <addaction name="actionBottom"/>
+    <addaction name="actionLeft"/>
+    <addaction name="actionTop"/>
+    <addaction name="actionRight"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuTest"/>
+   <addaction name="menuCursors"/>
+   <addaction name="menuAxis"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen_data_file"/>
+   <addaction name="actionExport_data_file"/>
+   <addaction name="actionZoom_Undo"/>
+   <addaction name="actionZoom_Redo"/>
+   <addaction name="actionZoom_In"/>
+   <addaction name="actionZoom_Out"/>
+   <addaction name="actionAdd"/>
+   <addaction name="actionInfo_data"/>
+   <addaction name="actionBottom_Left"/>
+   <addaction name="actionTop_Right"/>
+   <addaction name="actionTest"/>
+  </widget>
+  <action name="actionOpen_data_file">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/open.png</normaloff>:/png/open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open data file </string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionExport_data_file">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/save.png</normaloff>:/png/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export data file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionZoom_Undo">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/undo.png</normaloff>:/png/undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionZoom_Redo">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/redo.png</normaloff>:/png/redo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Z</string>
+   </property>
+  </action>
+  <action name="actionTest">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/question.png</normaloff>:/png/question.png</iconset>
+   </property>
+   <property name="text">
+    <string>Test</string>
+   </property>
+  </action>
+  <action name="actionAdd">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/add.png</normaloff>:/png/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add Cursor</string>
+   </property>
+  </action>
+  <action name="actionInfo_data">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/cursorInfo.png</normaloff>:/png/cursorInfo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Data Values</string>
+   </property>
+   <property name="toolTip">
+    <string>Visualize cursors data values</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/zoom.png</normaloff>:/png/zoom.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/zoom-out.png</normaloff>:/png/zoom-out.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+  </action>
+  <action name="actionTop">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Top</string>
+   </property>
+  </action>
+  <action name="actionRight">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Right</string>
+   </property>
+  </action>
+  <action name="actionLeft">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Left</string>
+   </property>
+  </action>
+  <action name="actionBottom">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Bottom</string>
+   </property>
+  </action>
+  <action name="actionBottom_Left">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/axis_bottom_left.png</normaloff>:/png/axis_bottom_left.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bottom-Left</string>
+   </property>
+   <property name="toolTip">
+    <string>Show/hide Bottom-Left axies</string>
+   </property>
+  </action>
+  <action name="actionTop_Right">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/png/axis_top_right.png</normaloff>:/png/axis_top_right.png</iconset>
+   </property>
+   <property name="text">
+    <string>Top-Right</string>
+   </property>
+   <property name="toolTip">
+    <string>Show/hide Top-Right axies</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WPlot</class>
+   <extends>QWidget</extends>
+   <header location="global">wplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

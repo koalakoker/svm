@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "mwplot.h"
 #include "svm.h"
 #include "alphabeta.h"
 #include <math.h>
@@ -10,7 +11,9 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     //MainWindow w;
     //w.show();
-    //return a.exec();
+
+
+    MWPlot* mwplot = new MWPlot("Test");
 
     float m = 0.5f;
     int nSect = 6;
@@ -21,6 +24,14 @@ int main(int argc, char *argv[])
         v.alpha = m * cos(th);
         v.beta = m * sin(th);
         Duty d = SVM::calculate(v);
-        qDebug() << i << d.a << d.b << d.c;
+        //qDebug() << i << d.a << d.b << d.c;
+        mwplot->addPoint(i,SData(d.a, d.b, d.c));
     }
+
+    mwplot->show();
+    mwplot->updatePlot();
+
+    mwplot->exportData("svm.txt");
+
+    return a.exec();
 }
