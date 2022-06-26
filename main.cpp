@@ -12,12 +12,15 @@ int main(int argc, char *argv[])
     //w.show();
     //return a.exec();
 
-    float m = 0.5f;
+    float m = 1.0f;
+    int nSect = 2;
+    int angleEnd = 60 * nSect;
     AlphaBeta v;
-    for (int i = 0; i < 60; i+=1) {
+    for (int i = 0; i < angleEnd; i+=1) {
         float th = (float)(i) * M_PI/180;
         v.alpha = m * cos(th);
         v.beta = m * sin(th);
-        qDebug() << i << SVM::calculate(v).toString();
+        Duty d = SVM::calculate(v);
+        qDebug() << i << d.a << d.b << d.c;
     }
 }

@@ -26,10 +26,32 @@ int SVM::sector(AlphaBeta v) {
 }
 
 Duty SVM::calculate(AlphaBeta v) {
-    Duty duty;
+    Duty d;
 
-    qDebug() << "Sector:" << SVM::sector(v);
+    int sector = SVM::sector(v);
 
+    switch (sector) {
+    case 1:
+    {
+        float t1 = v.alpha - (v.beta / SQRT3);
+        float t2 = v.beta * (2.0f / SQRT3);
+        d.c = (1 - t1 - t2) / 2.0f;
+        d.b = d.c + t2;
+        d.a = d.b + t1;
+        break;
+    }
+    case 2:
+    {
+        float t2 = v.alpha + (v.beta / SQRT3);
+        float t3 = - v.alpha + (v.beta / SQRT3);
+        d.c = (1 - t2 - t3) / 2.0f;
+        d.a = d.c + t2;
+        d.b = d.a + t3;
+        break;
+    }
+    default:
+        break;
+    }
 
-    return duty;
+    return d;
 }
