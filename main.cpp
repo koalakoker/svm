@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
     //w.show();
     //return a.exec();
 
-    float m = 1.0f;
-    int nSect = 4;
+    float m = 0.5f;
+    int nSect = 6;
     int angleEnd = 60 * nSect;
     AlphaBeta v;
     for (int i = 0; i < angleEnd; i+=1) {
