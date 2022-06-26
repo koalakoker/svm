@@ -49,6 +49,24 @@ Duty SVM::calculate(AlphaBeta v) {
         d.b = d.a + t3;
         break;
     }
+    case 3:
+    {
+        float t3 = v.beta * (2.0f / SQRT3);
+        float t4 = - v.alpha - (v.beta / SQRT3);
+        d.a = (1 - t3 - t4) / 2.0f;
+        d.c = d.a + t4;
+        d.b = d.c + t3;
+        break;
+    }
+    case 4:
+    {
+        float t4 = - v.alpha + (v.beta / SQRT3);;
+        float t5 = - v.beta * (2.0f / SQRT3);
+        d.a = (1 - t4 - t5) / 2.0f;
+        d.b = d.a + t4;
+        d.c = d.b + t5;
+        break;
+    }
     default:
         break;
     }

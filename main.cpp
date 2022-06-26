@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     //return a.exec();
 
     float m = 1.0f;
-    int nSect = 2;
+    int nSect = 4;
     int angleEnd = 60 * nSect;
     AlphaBeta v;
     for (int i = 0; i < angleEnd; i+=1) {
