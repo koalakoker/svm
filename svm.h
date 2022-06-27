@@ -4,6 +4,8 @@
 #include "duty.h"
 #include "alphabeta.h"
 
+#define SQRT3 1.73205f
+
 class SVM
 {
 public:

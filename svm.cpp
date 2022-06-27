@@ -1,8 +1,6 @@
 #include "svm.h"
 #include <QDebug>
 
-#define SQRT3 1.73205f
-
 SVM::SVM()
 {
 

@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     MWPlot* vllPlot = new MWPlot("Vll");
     MWPlot* vphPlot = new MWPlot("Vph");
 
-    float m = 1.0f;
+    float m = SQRT3/2.0f;
     int nSect = 6;
     int angleEnd = 60 * nSect;
     AlphaBeta v;
