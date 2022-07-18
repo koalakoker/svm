@@ -475,7 +475,14 @@ void WPlot::paintEvent(QPaintEvent *)
 void WPlot::keyPressEvent(QKeyEvent* event) {
     this->state->keyPressEvent(*this, event);
     if (!event->isAccepted()) {
-        QWidget::keyPressEvent(event);
+        if (event->key() == Qt::Key_Escape) {
+            this->close();
+            if (wParent) {
+                wParent->close();
+            }
+        } else {
+            QWidget::keyPressEvent(event);
+        }
     }
 };
 void WPlot::keyReleaseEvent(QKeyEvent* event) {
