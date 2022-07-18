@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>png/icons8-zoom-in-30.png</file>
+        <file>png/icons8-zoom-out-24.png</file>
+        <file>png/icons8-zoom-in-24.png</file>
+    </qresource>
+</RCC>
